@@ -14,6 +14,12 @@ export interface PageProps {
   error?: PageError
 }
 
+export interface MetaHeadProps {
+  recordMap?: object
+  meta?: object
+  site?: { name: '' }
+}
+
 export interface Model {
   id: string
   userId: string

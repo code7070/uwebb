@@ -1,0 +1,71 @@
+@import '../../styles/colors.module.scss';
+
+.Button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px 12px;
+  outline: none;
+  background: $neutral4;
+  border: 2px solid $neutral4;
+  color: $neutral13;
+  cursor: pointer;
+  border-radius: 3px;
+  font-family: inherit;
+  font-size: inherit;
+
+  span,
+  svg,
+  img {
+    display: block;
+  }
+
+  &:hover {
+    background: $neutral5;
+    border-color: $neutral5;
+  }
+
+  &:focus {
+    background: $neutral5;
+    border-color: $neutral6;
+  }
+
+  &:active {
+    background: $neutral6;
+    border-color: $neutral6;
+  }
+
+  &:disabled {
+    background: $neutral4;
+    color: $neutral6;
+    cursor: not-allowed;
+  }
+
+  &.primary {
+    background: $geekBlue6;
+    border-color: $geekBlue6;
+    color: $neutral1;
+
+    &:hover {
+      background: $geekBlue7;
+      border-color: $geekBlue7;
+    }
+
+    &:focus {
+      background: $geekBlue7;
+      border-color: $geekBlue9;
+    }
+
+    &:active {
+      background: $geekBlue8;
+      border-color: $geekBlue8;
+    }
+
+    &:disabled {
+      background: $geekBlue6;
+      color: $geekBlue4;
+    }
+  }
+}

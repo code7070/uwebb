@@ -18,13 +18,16 @@ import 'prismjs/themes/prism-coy.css'
 import 'katex/dist/katex.min.css'
 
 // core styles for static tweet renderer (optional)
-import 'react-static-tweets/styles.css'
+// import 'react-static-tweets/styles.css'
 
 // global style overrides for notion
 import 'styles/notion.css'
 
 // global style overrides for prism theme (optional)
 import 'styles/prism-theme.css'
+
+// override style antd
+import 'styles/antd-override.scss'
 
 // here we're bringing in any languages we want to support for
 // syntax highlighting via Notion's Code block

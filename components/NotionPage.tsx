@@ -9,7 +9,7 @@ import BodyClassName from 'react-body-classname'
 import useDarkMode from 'use-dark-mode'
 import { PageBlock } from 'notion-types'
 
-import { Tweet, TwitterContextProvider } from 'react-static-tweets'
+// import { Tweet } from 'react-static-tweets'
 
 // core notion renderer
 import { NotionRenderer, Code, Collection, CollectionRow } from 'react-notion-x'
@@ -19,7 +19,6 @@ import { getBlockTitle } from 'notion-utils'
 import { mapPageUrl, getCanonicalPageUrl } from 'lib/map-page-url'
 import { mapNotionImageUrl } from 'lib/map-image-url'
 import { getPageDescription } from 'lib/get-page-description'
-import { getPageTweet } from 'lib/get-page-tweet'
 import { searchNotion } from 'lib/search-notion'
 import * as types from 'lib/types'
 import * as config from 'lib/config'
@@ -29,11 +28,8 @@ import { CustomFont } from './CustomFont'
 import { Loading } from './Loading'
 import { Page404 } from './Page404'
 import { PageHead } from './PageHead'
-import { PageActions } from './PageActions'
 import { Footer } from './Footer'
-import { PageSocial } from './PageSocial'
 import { GitHubShareButton } from './GitHubShareButton'
-import { ReactUtterances } from './ReactUtterances'
 
 import styles from './styles.module.css'
 
@@ -103,13 +99,13 @@ export const NotionPage: React.FC<types.PageProps> = ({
 
   const title = getBlockTitle(block, recordMap) || site.name
 
-  console.log('notion page', {
-    isDev: config.isDev,
-    title,
-    pageId,
-    rootNotionPageId: site.rootNotionPageId,
-    recordMap
-  })
+  // console.log('notion page', {
+  //   isDev: config.isDev,
+  //   title,
+  //   pageId,
+  //   rootNotionPageId: site.rootNotionPageId,
+  //   recordMap
+  // })
 
   if (!config.isServer) {
     // add important objects to the window global for easy debugging
@@ -139,40 +135,10 @@ export const NotionPage: React.FC<types.PageProps> = ({
   const socialDescription =
     getPageDescription(block, recordMap) ?? config.description
 
-  let comments: React.ReactNode = null
-  let pageAside: React.ReactChild = null
-
   // only display comments and page actions on blog post pages
-  if (isBlogPost) {
-    if (config.utterancesGitHubRepo) {
-      comments = (
-        <ReactUtterances
-          repo={config.utterancesGitHubRepo}
-          issueMap='issue-term'
-          issueTerm='title'
-          theme={darkMode.value ? 'photon-dark' : 'github-light'}
-        />
-      )
-    }
-
-    const tweet = getPageTweet(block, recordMap)
-    if (tweet) {
-      pageAside = <PageActions tweet={tweet} />
-    }
-  } else {
-    pageAside = <PageSocial />
-  }
 
   return (
-    <TwitterContextProvider
-      value={{
-        tweetAstMap: (recordMap as any).tweetAstMap || {},
-        swrOptions: {
-          fetcher: (id) =>
-            fetch(`/api/get-tweet-ast/${id}`).then((r) => r.json())
-        }
-      }}
-    >
+    <React.Fragment>
       <PageHead site={site} />
 
       <Head>
@@ -252,7 +218,6 @@ export const NotionPage: React.FC<types.PageProps> = ({
           code: Code,
           collection: Collection,
           collectionRow: CollectionRow,
-          tweet: Tweet,
           modal: Modal,
           equation: Equation
         }}
@@ -270,8 +235,6 @@ export const NotionPage: React.FC<types.PageProps> = ({
         mapPageUrl={siteMapPageUrl}
         mapImageUrl={mapNotionImageUrl}
         searchNotion={searchNotion}
-        pageFooter={comments}
-        pageAside={pageAside}
         footer={
           <Footer
             isDarkMode={darkMode.value}
@@ -281,6 +244,6 @@ export const NotionPage: React.FC<types.PageProps> = ({
       />
 
       <GitHubShareButton />
-    </TwitterContextProvider>
+    </React.Fragment>
   )
 }

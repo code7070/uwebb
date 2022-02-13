@@ -1,0 +1,81 @@
+@import '../../styles/colors.module.scss';
+
+.loginPage {
+  position: relative;
+}
+
+.loginPage .loginWrapper {
+  position: relative;
+  display: flex;
+  height: 100vh;
+}
+
+.loginPage .loginForm {
+  position: relative;
+  width: 40%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginPage .loginVisual {
+  position: relative;
+  width: 60%;
+  height: 100%;
+  background: #efefef;
+  overflow: hidden;
+}
+
+.loginPage .loginVisual img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  width: 100%;
+}
+
+.loginPage .loginFormSet {
+  position: relative;
+  color: $neutral7;
+  width: 80%;
+  max-width: 420px;
+
+  .textTitle {
+    color: $neutral10;
+    font-weight: 500;
+  }
+
+  .textSub {
+    margin-top: 12px;
+    color: $neutral7;
+  }
+}
+
+.loginPage .registerOffer {
+  position: relative;
+  text-align: center;
+}
+
+.loginPage .loginActGroup {
+  position: relative;
+  margin-top: 22px;
+
+  .loginBtn {
+    position: relative;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .loginOffer {
+    position: relative;
+    color: $neutral7;
+    text-align: center;
+
+    a {
+      color: $geekBlue6;
+      padding-left: 4px;
+    }
+  }
+}
