@@ -57,7 +57,7 @@ export default function ButtonLogin({ onSuccess, onFailure, hideOnSuccess }) {
       </div>
       <div className={`${styles.loginOffer} textBody`}>
         Belum memiliki akun?
-        <Link href='/register'>Daftar Gratis Sekarang</Link>
+        <Link href='/login/register'>Daftar Gratis Sekarang</Link>
       </div>
     </div>
   )

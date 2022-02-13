@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { LoadingOutlined } from '@ant-design/icons'
 import styles from './login.module.scss'
 import ButtonLogin from './ButtonLogin'
-import TimerDot from 'components/TimerDot/TimerDot'
 
 const text = {
   before: {
