@@ -55,7 +55,8 @@ module.exports = {
     color:"",
     wrapper:{
       maxWidth:"",
-      align:""
+      align:"",
+      background:""
     }
   }
 }
