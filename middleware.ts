@@ -12,7 +12,7 @@ export default function middleware(req: NextRequest) {
   const hostname = req.headers.get('host') || ''
 
   const inLocal = 'localhost:3000'
-  const inProd = 'multi-tenant.vercel.app'
+  const inProd = 'uwebb-code7070.vercel.app'
   const inDomain = 'www.pengen-nikah.my.id'
 
   const parts = hostname.split('.')
